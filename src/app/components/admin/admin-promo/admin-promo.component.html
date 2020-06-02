@@ -1,0 +1,26 @@
+<p>
+  <a routerLink="/admin/promos/new" class="btn btn-primary">New Promo</a>
+</p>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+  <thead>
+    <tr>
+      <th>Promo Code</th>
+      <th>Active</th>
+      <th>Amount</th>
+      <th>Is Percent</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of promos ">
+      <td>{{p.code }}</td>
+      <td>{{p.isActive}}</td>
+      <td>{{p.amount}}</td>
+      <td>{{p.isPercent}}</td>
+      <td>
+        <a [routerLink]="['/admin/promos/', p._id]">View Details</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

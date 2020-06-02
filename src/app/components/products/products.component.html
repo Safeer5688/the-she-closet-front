@@ -1,0 +1,80 @@
+
+<div class="slider__container">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <!-- <ol class="carousel-indicators">
+      <ng-container *ngFor="let b of banners;let i = index">
+          <li data-target="#carouselExampleIndicators"  *ngIf="i===0" data-slide-to="{i}" class="active"></li>
+          <li data-target="#carouselExampleIndicators"  *ngIf="i!==0" data-slide-to="{i}"></li>
+      </ng-container>
+    </ol> -->
+    
+    <div class="carousel-inner">
+        <ng-container *ngFor="let b of banners;let i = index">
+            <div class="carousel-item item active" *ngIf="i===0" >
+              <img class="d-block w-100" [src]="b.image"  >
+            </div>
+            <div class="carousel-item item " *ngIf="i!==0" >
+                <img class="d-block w-100" [src]="b.image" >
+              </div>
+        </ng-container>
+    </div>
+    <a class="left carousel-control" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a> -->
+  </div>
+</div> 
+
+
+<section class="htc__product__area ptb--50 bg__white">
+  <div class="container">
+    <div class="htc__product__container">
+      <!-- Start Product MEnu -->
+      <div class="row">
+        <div class="col-md-12">
+          <product-filter [category]="category"></product-filter>
+        </div>
+      </div>
+      <!-- End Product MEnu -->
+      <div class="row">
+        <div class="product__list">
+          <!-- Start Single Product -->
+          <ng-container *ngFor="let p of filteredProductsForPage">
+            <product-card [product]="p"></product-card>
+          </ng-container>
+          <!-- End Single Product -->
+
+        </div>
+      </div>
+      <div class="row text-center">
+        <nav>
+          <ul class="pagination">
+            <li *ngIf='this.page>1' >
+              <a routerLink="/"  [queryParams]="{page: this.page-1,category:this.category}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li *ngFor='let in of counter(this.filteredProducts.length) ;let i = index' [class.active]="this.page == i+1 "  ><a routerLink="/"  [queryParams]="{page: i+1,category:this.category}" >{{i+1}}</a></li>
+            <li *ngIf='this.page<this.totalPages ' >
+              <a routerLink="/"  [queryParams]="{page: this.page+1,category:this.category}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

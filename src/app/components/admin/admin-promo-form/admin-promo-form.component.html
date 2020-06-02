@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-md-6">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+      <div class="form-group">
+        <label for="code">Code</label>
+        <input #code="ngModel" [(ngModel)]="promo.code" name="code" id="code" type="text" class="form-control"
+          placeholder="Code" required>
+        
+      </div>
+      
+      <div class="form-group">
+        <label class="form-check-label" for="isPercent">Is Percent:  </label><br>
+            <input #isPercent="ngModel" [(ngModel)]="promo.isPercent" name="isPercent" id="isPercent"
+              type="checkbox"class="form-check-input" required >
+      </div>
+      
+      <div class="form-group">
+        <label for="amount"> Amount</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Rs.</div>
+          </div>
+          <input #amount="ngModel" [(ngModel)]="promo.amount" name="amount" type="number" class="form-control"
+            id="amount" placeholder="Amount" required [min]="0">
+        </div>
+      </div>
+
+      
+
+      
+      <div class="form-group">
+        <label class="form-check-label" for="isActive">Is Active:  </label><br>
+            <input #isActive="ngModel" [(ngModel)]="promo.isActive" name="isActive" id="isActive"
+              type="checkbox"class="form-check-input" required >
+      </div>
+
+
+      <button class="btn btn-primary">Save</button>
+      <button type="button" *ngIf="promo._id" (click)="delete()" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+#checkoutButton{
+    border: 1px solid #d5d5d5;
+    display: inline-block;
+    font-size: 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    text-transform: capitalize;
+    -webkit-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    width: 150px;
+    color: #521f28;
+    text-transform: uppercase;
+}

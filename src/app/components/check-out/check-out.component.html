@@ -1,0 +1,59 @@
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(./assets/images/bg/2.jpg) no-repeat scroll center center / cover ;">
+  <div style="height:200px;" class="ht__bradcaump__wrap">
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="bradcaump__inner text-center">
+                      <h2 class="bradcaump-title">Checkout</h2>
+                      <nav class="bradcaump-inner">
+                        <a class="breadcrumb-item" routerLink="/">Home</a>
+                        <span class="brd-separetor">/</span>
+                        <span class="breadcrumb-item active">Checkout</span>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Start Checkout Area -->
+<section class="our-checkout-area ptb--50 bg__white">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 col-lg-8">
+              <div class="ckeckout-left-sidebar">
+                  <!-- Start Checkbox Area -->
+                  <div class="checkout-form">
+                      <h2 class="section-title-3">Billing details</h2>
+                      <div class="checkout-form-inner">
+                          <!-- <div class="single-checkout-box">
+                              <input type="text" placeholder="First Name*">
+                              <input type="text" placeholder="Last Name*">
+                          </div> -->
+                          <form  #f="ngForm" (ngSubmit)="placeOrder(f.value)">
+                              <div class="single-checkout-box">
+                                  <input #address="ngModel" ngModel name="address" id="address" type="text" 
+                                  placeholder="Address*" required>
+                                  <!-- <input type="text" placeholder="Phone*"> -->
+                                  <input #contact="ngModel" ngModel name="contact" id="contact" type="text"
+                                  placeholder="03XX-XXXXXXX" required>
+                              </div>
+                              <div class="single-checkout-box ">
+                                <label for="type">Shipping Type:</label><br>
+                                <select #type="ngModel" ngModel name="type" id="type" style="margin-bottom: 20px;" required>
+                                  <option value="local">Local(Karachi) +Rs.150</option>
+                                  <option value="domestic">Domestic(Outside Karachi) +Rs.200</option>
+                                </select>
+                            </div>
+                              <div class="checkout-btn" >
+                                  <button class="PlaceOrderButton"  id="checkoutButton">Place Order</button>
+                              </div>    
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</section>

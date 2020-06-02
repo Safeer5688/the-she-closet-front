@@ -1,0 +1,128 @@
+<div class="top-header">
+  <p class="top-header-text">Free Shipping on purchase of over Rs.2000</p>
+</div>
+
+<header id="header" class="htc-header header--3 bg__white">
+  <!-- Start Mainmenu Area -->
+  <div id="sticky-header-with-topbar" class="mainmenu__area sticky__header">
+    <!--=========-TOP_BAR============-->
+    <nav class="topBar">
+      <div class="container">
+        <ul class="topBarNav pull-right">
+          <li *ngIf="authService.loggedIn() && authService.getUser()" class="search search__open"
+            (click)=onLogoutClick()><a href="#"><i class=" mr-5"></i><span>Logout</span></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">
+              <i class="ti-user mr-5"></i>
+              <span *ngIf="!authService.loggedIn()" class="hidden-xs">My Account</span>
+              <span *ngIf="authService.loggedIn() && authService.getUser()"
+                class="hidden-xs">{{ authService.getUserInfo.name }}</span>
+            </a>
+            <ul class="dropdown-menu w-150" role="menu">
+              <li *ngIf="!authService.loggedIn()"><a routerLink="/login">Login</a>
+              </li>
+              <li *ngIf="!authService.loggedIn()"><a routerLink="/register">Create Account</a>
+              </li>
+              <li><a *ngIf="authService.loggedIn() && authService.isAdmin()" routerLink="/admin/orders">Manage Orders</a></li>
+              <li><a *ngIf="authService.loggedIn() && authService.isAdmin()" routerLink="/admin/products">Manage Products</a></li>
+              <li><a *ngIf="authService.loggedIn() && authService.isAdmin()" routerLink="/admin/banners">Manage Banners</a></li>
+              <li><a *ngIf="authService.loggedIn() && authService.isAdmin()" routerLink="/admin/promos">Manage Promos</a></li>
+              <li><a *ngIf="authService.loggedIn() && authService.isAdmin()" routerLink="/admin/categories">Manage Categories</a></li>
+              <li><a *ngIf="authService.loggedIn() && authService.isAdmin()" routerLink="/admin/newsletters">Manage Newsletters</a></li>
+
+              <li><a *ngIf="authService.loggedIn()" routerLink="/my/orders">My Orders</a></li>
+              <li><a *ngIf="authService.loggedIn()" routerLink="/resetpassword">Reset Password</a></li>
+              <li class="divider"></li>
+              <li><a routerLink="/shopping-cart">My Cart</a>
+              </li>
+              <li><a routerLink="/check-out">Checkout</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="cart__menu" class="dropdown-toggle cart__menu" data-toggle="dropdown" data-hover="dropdown"
+              data-close-others="false"> <i class="ti-shopping-cart mr-5"></i> <span>
+                Cart<sup class="text-primary">({{ this.shoppingCartService.itemCount }})</sup>
+              </span> </a>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--=========-TOP_BAR============-->
+    <nav class="navbar navbar-static-top example6">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar6">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand text-hide" routerLink="/">Brand Text
+          </a>
+        </div>
+        <div id="navbar6" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav justify-content: center">
+            <!-- <li class="active"><a href="#">Home</a></li> -->
+            <li><a routerLink="/">Home</a></li>
+            <!-- <li><a routerLink="/contactus">Contact</a></li>
+            <li><a routerLink="/aboutus">About</a></li> -->
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li *ngFor="let c of categories$" ><a routerLink="/category" [queryParams]="{page: 1,category:c.name}" >{{c.title}}</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+      <!--/.container-fluid -->
+    </nav>
+  </div>
+  <!-- End Mainmenu Area -->
+</header>
+
+<div class="body__overlay"></div>
+<!-- Start Offset Wrapper -->
+<div class="offset__wrapper">
+  
+  <div class="shopping__cart">
+    <div class="shopping__cart__inner">
+      <div class="offsetmenu__close__btn">
+        <a><i id="closeSmallCart" class="zmdi zmdi-close"></i></a>
+      </div>
+      <div class="shp__cart__wrap">
+        <div *ngFor="let item of this.shoppingCartService.getCart()" class="shp__single__product">
+          <div class="shp__pro__thumb">
+            <a>
+              <img [src]="item.imageLink" alt="product images">
+            </a>
+          </div>
+          <div class="shp__pro__details">
+            <h2><a>{{item.title}} ({{( item.size )}})</a></h2>
+            <span class="quantity">QTY: {{ shoppingCartService.productCount(item)}}</span>
+            <span
+              class="shp__price">{{shoppingCartService.productCount(item) * item.price | currency:'Rs.':true}}</span>
+          </div>
+        </div>
+
+      </div>
+      <ul class="shoping__total">
+        <li class="subtotal">Subtotal:</li>
+        <li class="total__price">{{ shoppingCartService.getSubTotalPrice | currency:'Rs.':true  }}</li>
+      </ul>
+      <ul class="shoping__total">
+        <li class="subtotal">Total:</li>
+        <li class="total__price">{{ shoppingCartService.getTotalPrice | currency:'Rs.':true  }}</li>
+      </ul>
+      <ul class="shopping__btn">
+        <li><a (click)=onCartClick() >View Cart</a></li>
+        <li class="shp__checkout"><a (click)=onCheckoutClick() >Checkout</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- End Cart Panel -->
+</div>

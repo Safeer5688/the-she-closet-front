@@ -1,0 +1,25 @@
+<p>
+  <a routerLink="/admin/banners/new" class="btn btn-primary">New Banner</a>
+</p>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover"> 
+<thead>
+<tr>
+  <th>title</th>
+  <th>imageId</th>
+  <th>link</th>
+  <th>edit</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor ="let b of banners ">
+  <td>{{b.title}}</td>
+  <td>{{b.imageId}}</td>
+  <td><a [href]="b.image" target="_blank">Image Link</a></td>
+  <td>
+    <a [routerLink] ="['/admin/banners/', b._id]">Edit </a>
+  </td>
+</tr>
+</tbody>
+</table>
+

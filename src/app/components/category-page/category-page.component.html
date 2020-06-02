@@ -1,0 +1,59 @@
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(./assets/images/bg/2.jpg) no-repeat scroll center center / cover ;">
+  <div class="ht__bradcaump__wrap">
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="bradcaump__inner text-center">
+                      <h2 class="bradcaump-title">Shop Page</h2>
+                      <nav class="bradcaump-inner">
+                        <a class="breadcrumb-item" >Category</a>
+                        <span class="brd-separetor">/</span>
+                        <span class="breadcrumb-item active">{{this.category}}</span>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<section class="htc__product__area ptb--50 bg__white">
+  <div class="container">
+    <div class="htc__product__container">
+      <!-- Start Product MEnu -->
+      <div class="row">
+        <div class="col-md-12">
+          <product-filter [category]="category"></product-filter>
+        </div>
+      </div>
+      <!-- End Product MEnu -->
+      <div class="row">
+        <div class="product__list">
+          <!-- Start Single Product -->
+          <ng-container *ngFor="let p of filteredProductsForPage">
+            <product-card [product]="p"></product-card>
+          </ng-container>
+          <!-- End Single Product -->
+
+        </div>
+      </div>
+      <div class="row text-center">
+        <nav>
+          <ul class="pagination">
+            <li *ngIf='this.page>1' >
+              <a routerLink="/category"  [queryParams]="{page: this.page-1,category:this.category}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li *ngFor='let in of counter(this.filteredProducts.length) ;let i = index' [class.active]="this.page == i+1 "  ><a routerLink="/category"  [queryParams]="{page: i+1,category:this.category}" >{{i+1}}</a></li>
+            <li *ngIf='this.page<this.totalPages ' >
+              <a routerLink="/category"  [queryParams]="{page: this.page+1,category:this.category}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>

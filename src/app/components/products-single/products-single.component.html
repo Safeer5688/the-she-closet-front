@@ -1,0 +1,206 @@
+    <!-- <div>
+        
+        <ol>
+          <li>
+              {{ product.title }}
+          </li>
+          <li>
+              {{ product.price }}
+          </li>
+        </ol>
+    </div>
+     -->
+<!-- Start Bradcaump area -->
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(./assets/images/bg/2.jpg) no-repeat scroll center center / cover ;">
+  <div class="ht__bradcaump__wrap">
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="bradcaump__inner text-center">
+                      <h2 class="bradcaump-title">Product Details</h2>
+                      <nav class="bradcaump-inner">
+                        <a class="breadcrumb-item" routerLink="/">Home</a>
+                        <span class="brd-separetor">/</span>
+                        <span class="breadcrumb-item active">Product Details</span>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- End Bradcaump area -->
+<!-- Start Product Details -->
+<section class="htc__product__details pt--120 pb--100 bg__white">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+              <div class="product__details__container">
+                  <!-- Start Small images -->
+                  <ul class="product__small__images" role="tablist">
+                      <li role="presentation" class="pot-small-img active">
+                          <a href="#img-tab-1" role="tab" data-toggle="tab">
+                              
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/c_fill,w_23,h_30,g_face,dpr_5.0/{{product.imageUrls[0]['imageId']}}" alt="small-image">
+                          </a>
+                      </li>
+                      <li role="presentation" class="pot-small-img">
+                          <a href="#img-tab-2" role="tab" data-toggle="tab">
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/c_fill,w_23,h_30,g_face,dpr_5.0/{{product.imageUrls[1]['imageId']}}" alt="small-image">
+                          </a>
+                      </li>
+                      <li role="presentation" class="pot-small-img">
+                          <a href="#img-tab-3" role="tab" data-toggle="tab">
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/c_fill,w_23,h_30,g_face,dpr_5.0/{{product.imageUrls[2]['imageId']}}" alt="small-image">
+                          </a>
+                      </li>
+                      <li role="presentation" class="pot-small-img hidden-xs ">
+                          <a href="#img-tab-4" role="tab" data-toggle="tab">
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/c_fill,w_23,h_30,g_face,dpr_5.0/{{product.imageUrls[3]['imageId']}}" alt="small-image">
+                          </a>
+                      </li>
+                  </ul>
+                  <!-- End Small images -->
+                  <div class="product__big__images">
+                      <div class="portfolio-full-image tab-content">
+                          <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[0]['imageId']}}"   alt="full-image">
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="img-tab-2">
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[1]['imageId']}}" alt="full-image">
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="img-tab-3">
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[2]['imageId']}}" alt="full-image">
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="img-tab-4">
+                              <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[3]['imageId']}}" alt="full-image">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 smt-30 xmt-30">
+              <div class="htc__product__details__inner">
+                  <div class="pro__detl__title">
+                      <h2>{{product.title}}</h2>
+                      <h2 style="color: #cb7c7f;font-size: 25px;">{{product.category}}</h2>
+                  </div>
+                  
+                  <div class="pro__details">
+                      <p >{{product.description}}</p>
+                  </div>
+                  <ul class="pro__dtl__prize">
+                      <li *ngIf="product.isSale" class="old__prize">{{product.oldPrice | currency:'PKR':'symbol-narrow'}}</li>
+                      <li>{{product.price | currency:'PKR':'symbol-narrow'}}</li>
+                  </ul>
+                  <div class="pro__dtl__size">
+                      <h2 *ngIf="!product.inStock" class="title__5">SOLD OUT</h2>
+                      <h2 *ngIf="product.inStock" class="title__5">Size</h2>
+                      <ul *ngIf="product.inStock" class="pro__choose__size">
+                          <li *ngIf="product.sizes[0].isAvailable"><a [class.selectSize]="size === 's'" (click)="selectSize('s')">s</a></li>
+                          <li *ngIf="product.sizes[1].isAvailable"><a [class.selectSize]="size === 'm'" (click)="selectSize('m')">m</a></li>
+                          <li *ngIf="product.sizes[2].isAvailable"><a [class.selectSize]="size === 'l'" (click)="selectSize('l')">l</a></li>
+                          <li *ngIf="product.sizes[3].isAvailable"><a [class.selectSize]="size === 'xl'" (click)="selectSize('xl')">xl</a></li>
+                          <li *ngIf="product.sizes[4].isAvailable"><a [class.selectSize]="size === 'xxl'" (click)="selectSize('xxl')">xxl</a></li>
+                          <li *ngIf="product.sizes[5].isAvailable"><a [class.selectSize]="size === 'xxxl'" (click)="selectSize('xxxl')">xxxl</a></li>
+                      </ul>
+                  </div>
+                  <div class="product-action-wrap">
+                      <div class="prodict-statas"><span>Quantity :</span></div>
+                      <div class="product-quantity">
+                          <form id='myform' method='POST' action='#'>
+                              <div class="product-quantity">
+                                  <div class="cart-plus-minus" id="plusMinus">
+                                      <input class="cart-plus-minus-box" type="number" name="qtybutton" id="quantity" value="1" min="1">
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <ul *ngIf="product.inStock" class="pro__dtl__btn">
+                      <li class="buy__now__btn"><a id="addButton" (click)='addToCart()'>Add to Cart</a></li>
+                  </ul>
+                  <ul *ngIf="!product.inStock" class="pro__dtl__btn">
+                      <li class="buy__now__btn"><a id="addButton" disables>SOLD</a></li>
+                  </ul>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End Product Details -->
+<!-- Start Product tab -->
+<section class="htc__product__details__tab bg__white pb--120">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="product-single-tabs">
+                  <div class="tab-content ">
+                      <div class="" id="product-size-content" role="tabpanel" aria-labelledby="product-tab-size">
+                          <div class="product-size-content">
+                              <div class="row">
+                                  <div class="col-md-4">
+                                      <img src="./assets/images/product/body-shape.png" alt="body shape">
+                                  </div><!-- End .col-md-4 -->
+
+                                  <div class="col-md-8">
+                                      <table class="table table-size">
+                                          <thead>
+                                              <tr>
+                                                  <th>SIZE</th>
+                                                  <th>CHEST (in.)</th>
+                                                  <th>WAIST (in.)</th>
+                                                  <th>HIPS (in.)</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr>
+                                                  <td>XS</td>
+                                                  <td>34-36</td>
+                                                  <td>27-29</td>
+                                                  <td>34.5-36.5</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>S</td>
+                                                  <td>36-38</td>
+                                                  <td>29-31</td>
+                                                  <td>36.5-38.5</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>M</td>
+                                                  <td>38-40</td>
+                                                  <td>31-33</td>
+                                                  <td>38.5-40.5</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>L</td>
+                                                  <td>40-42</td>
+                                                  <td>33-36</td>
+                                                  <td>40.5-43.5</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>XL</td>
+                                                  <td>42-45</td>
+                                                  <td>36-40</td>
+                                                  <td>43.5-47.5</td>
+                                              </tr>
+                                              <tr>
+                                                  <td>XLL</td>
+                                                  <td>45-48</td>
+                                                  <td>40-44</td>
+                                                  <td>47.5-51.5</td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </div>
+                              </div><!-- End .row -->
+                          </div><!-- End .product-size-content -->
+                      </div><!-- End .tab-pane -->
+                  </div><!-- End .tab-content -->
+              </div><!-- End .product-single-tabs -->
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End Product tab -->

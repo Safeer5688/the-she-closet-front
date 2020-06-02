@@ -1,0 +1,22 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+  <thead>
+    <tr>
+      <th>Order name</th>
+      <th>Total Bill</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let o of orders ">
+      <td>{{o.userId.name }}</td>
+      <td>{{o.amount | currency:'Rs.':true}}</td>
+      <td>{{ this.dateToTimestamp(o.date) }}</td>
+      <td>{{o.status}}</td>
+      <td>
+        <a [routerLink]="['/admin/orders/', o._id]">View Details</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

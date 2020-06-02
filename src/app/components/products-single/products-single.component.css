@@ -1,0 +1,10 @@
+.selectSize{
+    border-style: solid; border-width: 1px 0px; border-color: #cb7c7f;
+    color: #cb7c7f;
+}
+li{
+    cursor: pointer;
+}
+#plusMinus{
+    cursor: pointer;
+}

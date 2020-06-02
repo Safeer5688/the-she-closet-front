@@ -1,0 +1,42 @@
+
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(./assets/images/bg/2.jpg) no-repeat scroll center center / cover ;">
+  <div class="ht__bradcaump__wrap">
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="bradcaump__inner text-center">
+                      <h2 class="bradcaump-title">Home</h2>
+                      <nav class="bradcaump-inner">
+                        <a class="breadcrumb-item active" routerLink="/my/orders">Orders</a>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Total Bill</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of orders ">
+        <td>{{o._id }}</td>
+        <td>{{o.amount | currency:'Rs.':true}}</td>
+        <td>{{ this.dateToTimestamp(o.date) }}</td>
+        <td>{{o.status}}</td>
+        <td>
+          <a [routerLink]="['/my/orders/', o._id]">View Details</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

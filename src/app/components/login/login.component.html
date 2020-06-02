@@ -1,0 +1,37 @@
+
+ <div class="htc__login__register bg__white ptb--130"
+ style="background: rgba(0, 0, 0, 0) url(./assets/images/bg/5.jpg) no-repeat scroll center center / cover ;">
+ <div class="container">
+   <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+       <ul class="login__register__menu" role="tablist">
+         <li role="presentation" class="login active" ><a routerLink="/login">Login</a></li>
+         <li role="presentation" class="register" ><a routerLink="/register">Register</a></li>
+       </ul>
+     </div>
+   </div>
+   <!-- Start Login Register Content -->
+   <div class="row">
+     <div class="col-md-6 col-md-offset-3">
+       <div class="htc__login__register__wrap">
+         <!-- Start Single Content -->
+         <div id="login" role="tabpanel" class="single__tabs__panel tab-pane fade in active">
+           <form class="login" (submit)="onLoginSubmit()">
+             <input type="email" class="borderAdded" [(ngModel)]="email" id="Email" name="email" placeholder="User Email*">
+             <input type="password" class="borderAdded" [(ngModel)]="password" id="Password" name="password" placeholder="Password*">
+             <div class="tabs__checkbox">
+               <span class="forget"><a routerLink="/sendforgetpasswordlink">Forgot Password?</a></span>
+             </div>
+             <div class="htc__login__btn mt--30">
+               <button>Submit</button>
+             </div>
+           </form>
+           
+           
+         </div>
+       </div>
+     </div>
+   </div>
+   <!-- End Login Register Content -->
+ </div>
+</div>

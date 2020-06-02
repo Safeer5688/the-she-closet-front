@@ -1,0 +1,22 @@
+<p>
+  <a routerLink="/admin/categories/new" class="btn btn-primary">New category</a>
+</p>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of categories ">
+      <td>{{c.title }}</td>
+      <td>{{c.name}}</td>
+      <td>
+        <a [routerLink]="['/admin/categories/', c._id]">View Details</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

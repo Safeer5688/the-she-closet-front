@@ -1,0 +1,168 @@
+<div class="row container">
+  <div class="col-md-6">
+    <form #f="ngForm" (ngSubmit)="save(f.value)">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input #title="ngModel" [(ngModel)]="product.title" name="title" id="title" type="text" class="form-control"
+          placeholder="Title" required>
+        <div class="alert alert-danger" *ngIf="title.touched && title.invalid">Title is required</div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input #description="ngModel" [(ngModel)]="product.description" name="description" id="description" type="text" class="form-control"
+          placeholder="Description" required>
+        <div class="alert alert-danger" *ngIf="description.touched && description.invalid">Title is required</div>
+      </div>
+      <div class="form-group">
+        <label class="form-check-label" for="isSale">Sale:  </label><br>
+            <input #isSale="ngModel" [(ngModel)]="product.isSale" name="isSale" id="isSale"
+              type="checkbox"class="form-check-input" required >
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Rs.</div>
+          </div>
+          <input #price="ngModel" [(ngModel)]="product.price" name="price" type="number" class="form-control" id="price"
+            placeholder="Price" required [min]="0">
+        </div>
+        <div class="alert alert-danger" *ngIf="price.touched && price.invalid">
+          <div *ngIf='price.errors.required'>Price is required</div>
+          <div *ngIf='price.errors.min'>Price should be 0 or high</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="oldPrice"> Old Price</label>
+        <div class="input-group mb-2 mr-sm-2">
+          <div class="input-group-prepend">
+            <div class="input-group-text">Rs.</div>
+          </div>
+          <input #oldPrice="ngModel" [(ngModel)]="product.oldPrice" name="oldPrice" type="number" class="form-control"
+            id="oldPrice" placeholder="Old Price" required [min]="0">
+        </div>
+        <div class="alert alert-danger" *ngIf="oldPrice.touched && oldPrice.invalid">
+          <div *ngIf='oldPrice.errors.required'>Old Price is required</div>
+          <div *ngIf='oldPrice.errors.min'>Old Price should be 0 or high</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select #category="ngModel" [(ngModel)]="product.category" name="category" id="category" class="form-control"
+          required>
+          <!-- <option value="product?.category"></option> -->
+          <option *ngFor="let c of categories$ " [value]="c.name">
+            {{ c.title}}
+          </option>
+        </select>
+        <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+          Category is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="imageLink1">Image Link 1</label>
+        <input #imageLink1="ngModel" [(ngModel)]="product.imageLink1" name="imageLink1" id="imageLink1"
+          type="text" class="form-control" placeholder="Image Link 1" required url>
+      </div>
+      <div class="form-group">
+        <label for="imageId1">Image Id 1</label>
+        <input #imageId1="ngModel" [(ngModel)]="product.imageId1" name="imageId1" id="imageId1" type="text"
+          class="form-control" placeholder="Image Id 1" required url>
+      </div>
+
+      <div class="form-group">
+        <label for="imageLink2">Image Link 2</label>
+        <input #imageLink2="ngModel" [(ngModel)]="product.imageLink2" name="imageLink2" id="imageLink2"
+          type="text" class="form-control" placeholder="Image Link 2" required url>
+      </div>
+      <div class="form-group">
+        <label for="imageId2">Image Id 2</label>
+        <input #imageId2="ngModel" [(ngModel)]="product.imageId2" name="imageId2" id="imageId2" type="text"
+          class="form-control" placeholder="Image Id 2" required url>
+      </div>
+
+      <div class="form-group">
+        <label for="imageLink3">Image Link 3</label>
+        <input #imageLink3="ngModel" [(ngModel)]="product.imageLink3" name="imageLink3" id="imageLink3"
+          type="text" class="form-control" placeholder="Image Link 3" required url>
+      </div>
+      <div class="form-group">
+        <label for="imageId3">Image Id 3</label>
+            <input #imageId3="ngModel" [(ngModel)]="product.imageId3" name="imageId3" id="imageId3"
+              type="text" class="form-control" placeholder="Image Id 3" required url>
+      </div>
+
+      <div class="form-group">
+        <label for="imageLink4">Image Link 4</label>
+        <input #imageLink4="ngModel" [(ngModel)]="product.imageLink4" name="imageLink4" id="imageLink4"
+          type="text" class="form-control" placeholder="Image Link 4" required url>
+      </div>
+      <div class="form-group">
+        <label for="imageId4">Image Id 4</label>
+            <input #imageId4="ngModel" [(ngModel)]="product.imageId4" name="imageId4" id="imageId4"
+              type="text" class="form-control" placeholder="Image Id 4" required url>
+      </div>
+      
+      
+      <div class="form-group">
+        <label class="form-check-label" for="inStock">Is Available:  </label><br>
+            <input #inStock="ngModel" [(ngModel)]="product.inStock" name="inStock" id="isStock"
+              type="checkbox"class="form-check-input" required >
+      </div>
+
+      <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Select Available Sizes</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" #s="ngModel" [(ngModel)]="product.s" name="s" id="s" >
+              <label class="form-check-label" for="s">
+                Small
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" #m="ngModel" [(ngModel)]="product.m" name="m" id="m"  >
+              <label class="form-check-label" for="m">
+                Medium
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" #l="ngModel" [(ngModel)]="product.l" name="l" id="l" >
+              <label class="form-check-label" for="l">
+                Large
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" #xl="ngModel" [(ngModel)]="product.xl" name="xl" id="xl" >
+              <label class="form-check-label" for="xl">
+                X Large
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" #xxl="ngModel" [(ngModel)]="product.xxl" name="xxl" id="xxl" >
+              <label class="form-check-label" for="xxl">
+                XX Large
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" #xxxl="ngModel" [(ngModel)]="product.xxxl" name="xxxl" id="xxxl" >
+              <label class="form-check-label" for="xxxl">
+                XXX Large
+              </label>
+            </div>
+            
+          </div>
+        </div>
+      </fieldset>
+
+      <button class="btn btn-primary">Save</button>
+      <button type="button" *ngIf="product._id" (click)="delete()" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <product-card [product]="product" [show-actions]="false"></product-card>
+  </div>
+</div>

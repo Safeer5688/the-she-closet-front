@@ -1,0 +1,121 @@
+
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(./assets/images/bg/2.jpg) no-repeat scroll center center / cover ;">
+  <div class="ht__bradcaump__wrap">
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="bradcaump__inner text-center">
+                      <h2 class="bradcaump-title">Order Details</h2>
+                      <nav class="bradcaump-inner">
+                        <a class="breadcrumb-item" routerLink="/my/orders">Orders</a>
+                        <span class="brd-separetor">/</span>
+                        <span class="breadcrumb-item active">Order Details</span>
+                      </nav>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  
+<div class="row">
+    <div class="col-12">
+        <div class="text-xs-center">
+            <i class="fa fa-search-plus float-xs-left icon"></i>
+            <h3>Invoice of order #<strong>{{order._id}}</strong></h3>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-lg-6 float-xs-left">
+                
+                <div class="card  height">
+                    <div class="card-header">Order Details</div>
+                    <div class="card-body">
+                        <strong>Status: </strong>
+                         {{order.status}}<br>
+                         <strong>User Name: </strong>{{order.userId.name}}<br>
+                         <strong>Date: </strong>{{dateToTimestamp(order.date)}}<br>
+                        <strong>Email:</strong>{{order.userId.email}}<br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-6 float-xs-right">
+                <div class="card  height">
+                    <div class="card-header">Delivery Details</div>
+                    <div class="card-body">
+                        <strong>Address:</strong><br>
+                        {{order.shipping.address}}<br>
+                        Contact:<strong>{{order.shipping.contact}}</strong><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12">
+        <div class="card ">
+            <div class="card-header">
+                <h3 class="text-xs-center"><strong>Order summary</strong></h3>
+            </div>
+            <div class="card-block">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <td><strong>Name</strong></td>
+                                <td class="text-xs-center"><strong>Size</strong></td>
+                                <td class="text-xs-center"><strong>Quantity</strong></td>
+                                <td class="text-xs-center"><strong>Price</strong></td>
+                                <td class="text-xs-right"><strong>Total</strong></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let o of order.items">
+                                <td>{{o.title}}</td>
+                                <td class="text-xs-center">{{o.size}}</td>
+                                <td class="text-xs-center">{{o.quantity}}</td>
+                                <td class="text-xs-right">{{o.price | currency:'PKR':'symbol-narrow'}}</td>
+                                <td class="text-xs-right">{{o.price*o.quantity | currency:'PKR':'symbol-narrow'}}</td>
+                            </tr>
+                            <tr>
+                                <td class="highrow"></td>
+                                <td class="highrow"></td>
+                                <td class="highrow"></td>
+                                <td class="highrow text-xs-center"><strong>Subtotal</strong></td>
+                                <td class="highrow text-xs-right">{{this.subtotal | currency:'PKR':'symbol-narrow'}}</td>
+                            </tr>
+                            <tr>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow text-xs-center"><strong>Promo</strong></td>
+                                <td class="emptyrow text-xs-right" *ngIf="order.promoCode">{{order.promoCode}}</td>
+                                <td class="emptyrow text-xs-right" *ngIf="!order.promoCode">None</td>
+                            </tr>
+                            <tr>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow text-xs-center"><strong>Shipping({{order.shipping.type}})</strong></td>
+                                <td class="emptyrow text-xs-right" *ngIf="order.shipping.type=='local'">+150</td>
+                                <td class="emptyrow text-xs-right" *ngIf="order.shipping.type=='domestic'">+200</td>
+                            </tr>
+                            <tr>
+                                <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow"></td>
+                                <td class="emptyrow text-xs-center"><strong>Total</strong></td>
+                                <td class="emptyrow text-xs-right">{{order.amount | currency:'PKR':'symbol-narrow'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
