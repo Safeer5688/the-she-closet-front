@@ -48,6 +48,7 @@ import { CategoryService } from './services/category.service';
 import { PasswordResetService } from './services/password-reset.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { BannerService } from './services/banner.service';
+import { ConstantsService } from './services/constants.service';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { AdminPromoComponent } from './components/admin/admin-promo/admin-promo.component';
 import { AdminPromoFormComponent } from './components/admin/admin-promo-form/admin-promo-form.component';
@@ -101,7 +102,7 @@ import { OrderDatailsComponent } from './components/order-datails/order-datails.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule.forRoot(),
+    NgbModule,
     RouterModule.forRoot([
       {path:'',component:ProductsComponent},
       {path:'allproducts',component:ProductsComponent},
@@ -156,7 +157,8 @@ import { OrderDatailsComponent } from './components/order-datails/order-datails.
     CategoryService,
     ShoppingCartService,
     PasswordResetService,
-    BannerService
+    BannerService,
+    ConstantsService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,20 +4,28 @@ import { Http, Headers } from '@angular/http';
 import { map } from "rxjs/operators";
 import { tokenNotExpired } from 'angular2-jwt';
 import { UrlResolver } from '@angular/compiler';
+import { ConstantsService } from './constants.service'
 
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class AuthService {
   authToken: any;
   user: any;
+  baseUrl:String;
 
-  constructor(private http: Http) { }
-
+  constructor(private http: Http,
+    private constantsService:ConstantsService) {
+      this.baseUrl = constantsService.getBaseUrl();
+     }
+  
   registerUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('users/register', user, { headers: headers }).pipe(map(res => res));
+    return this.http.post(this.baseUrl+'users/register', user, { headers: headers }).pipe(map(res => res));
   }
 
   authenticateUser(user) {
