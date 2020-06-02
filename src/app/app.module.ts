@@ -59,6 +59,7 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { SendForgetPasswordLinkComponent } from './components/send-forget-password-link/send-forget-password-link.component';
 import { NewslettersComponent } from './components/admin/newsletters/newsletters.component';
 import { OrderDatailsComponent } from './components/order-datails/order-datails.component';
+import { PlagCheckerComponent } from './components/plag-checker/plag-checker.component';
 
 
 
@@ -98,6 +99,7 @@ import { OrderDatailsComponent } from './components/order-datails/order-datails.
     SendForgetPasswordLinkComponent,
     NewslettersComponent,
     OrderDatailsComponent,
+    PlagCheckerComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,6 +125,7 @@ import { OrderDatailsComponent } from './components/order-datails/order-datails.
       {path:'my/orders/:id',component:OrderDatailsComponent, canActivate:[AuthGuard]},
       {path:'resetpassword',component:ResetPasswordComponent, canActivate:[AuthGuard]},
       {path:'sendverificationlink',component:SendVerificationLinkComponent, canActivate:[AuthGuard]},
+      {path:'plag-checker',component:PlagCheckerComponent},
       
       {path:'admin/products',component:AdminProductsComponent, canActivate:[AuthGuard,AdminGuard]},
       {path:'admin/products/new',component:ProductFormComponent, canActivate:[AuthGuard,AdminGuard]},

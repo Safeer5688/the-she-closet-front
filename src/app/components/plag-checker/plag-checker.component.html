@@ -1,0 +1,101 @@
+<div class="ht__bradcaump__area"
+  style="background: rgba(0, 0, 0, 0) url(./assets/images/bg/2.jpg) no-repeat scroll center center / cover ;">
+  <div class="ht__bradcaump__wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="bradcaump__inner text-center">
+            <h2 class="bradcaump-title">Plag Checker</h2>
+            <nav class="bradcaump-inner">
+              <a class="breadcrumb-item" routerLink="/">Home</a>
+              <span class="brd-separetor">/</span>
+              <span class="breadcrumb-item active">Plag Checker</span>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="htc__product__details pt--120 pb--100 bg__white ">
+  <div class="container ">
+    <div class="row ">
+      <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 ">
+        <div class="product__details__container">
+
+          <!-- End Small images -->
+          <div class="product__big__images">
+            <div class="portfolio-full-image tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
+                <input type="file" (change)="onSelectFile1($event)" name="uploadfile1" id="img1" style="display:none;" />
+                <label for="img1">
+                  <ul class="pro__dtl__btn">
+                    <li class="buy__now__btn"><a id="addButton">Upload Image 1</a></li>
+                  </ul>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 ">
+        <div class="product__details__container">
+
+          <!-- End Small images -->
+          <div class="product__big__images">
+            <div class="portfolio-full-image tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
+                <img [src]="url1"
+                  alt="full-image">
+                <!-- <input type="file"> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6 ">
+        <div class="product__details__container">
+
+          <!-- End Small images -->
+          <div class="product__big__images">
+            <div class="portfolio-full-image tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
+                <img [src]="url2"
+                  alt="full-image">
+                <!-- <input type="file"> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+        <div class="product__details__container">
+
+          <!-- End Small images -->
+          <div class="product__big__images">
+            <div class="portfolio-full-image tab-content">
+              <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
+                <input type="file" (change)="onSelectFile2($event)" name="uploadfile2" id="img2" style="display:none;" />
+                <label for="img2">
+                  <ul class="pro__dtl__btn">
+                    <li class="buy__now__btn"><a id="addButton">Upload Image 2</a></li>
+                  </ul>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row" style="padding-top: 20px;">
+      <ul class="pro__dtl__btn ">
+        <li class="htc__login__btn center-block"><button id="addButton">Compare</button></li>
+      </ul>
+    </div>
+    <div class="row" style="padding-top: 20px;">
+      <!-- <p>hello</p> -->
+    </div>
+  </div>
+</section>
