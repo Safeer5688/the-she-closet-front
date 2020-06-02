@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlagCheckerService} from 'src/app/services/plag-checker.service'
 
 @Component({
   selector: 'app-plag-checker',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class PlagCheckerComponent implements OnInit {
   url1: any;
   url2:any;
-  constructor() {
+  constructor(
+    private plagCheckerService:PlagCheckerService
+  ) {
     if (!this.url1) {
       this.url1 = "https://i.pinimg.com/originals/92/3c/50/923c508dac22439e4f56502f7181e040.jpg";
       this.url2 = "https://i.pinimg.com/originals/92/3c/50/923c508dac22439e4f56502f7181e040.jpg";
@@ -36,6 +39,38 @@ export class PlagCheckerComponent implements OnInit {
         this.url2 = event.target.result;
         console.log( event.target.result);
       }
+    }
+  }
+
+  submit(){
+    var addButton = document.getElementById("addButton");
+    var plagReply = document.getElementById("plagReply");
+    addButton['disabled'] = true;
+    addButton['innerHTML'] = "Checking Plag...";
+    if(this.url1=="https://i.pinimg.com/originals/92/3c/50/923c508dac22439e4f56502f7181e040.jpg" || this.url2=="https://i.pinimg.com/originals/92/3c/50/923c508dac22439e4f56502f7181e040.jpg"){
+      addButton['disabled'] = false;
+      addButton['innerHTML'] = "Compare";
+      return plagReply['innerHTML'] = "Select Both pictures";
+
+    }
+    else{
+      
+      this.plagCheckerService.compare(this.url1,this.url2).subscribe(response =>{
+      
+        let res = JSON.parse(response['_body']);
+        if(!res.status){
+          addButton['disabled'] = false;
+          addButton['innerHTML'] = "Compare";
+          plagReply['innerHTML'] = res.msg;
+          console.log(res.msg);
+        }
+        else{
+          addButton['disabled'] = false;
+          addButton['innerHTML'] = "Compare";
+          plagReply['innerHTML'] = res.msg;
+          console.log(res.msg);
+        }
+      });
     }
   }
 

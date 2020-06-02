@@ -49,6 +49,7 @@ import { PasswordResetService } from './services/password-reset.service';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { BannerService } from './services/banner.service';
 import { ConstantsService } from './services/constants.service';
+import { PlagCheckerService } from './services/plag-checker.service';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { AdminPromoComponent } from './components/admin/admin-promo/admin-promo.component';
 import { AdminPromoFormComponent } from './components/admin/admin-promo-form/admin-promo-form.component';
@@ -161,7 +162,8 @@ import { PlagCheckerComponent } from './components/plag-checker/plag-checker.com
     ShoppingCartService,
     PasswordResetService,
     BannerService,
-    ConstantsService
+    ConstantsService,
+    PlagCheckerService
   ],
   bootstrap: [AppComponent]
 })

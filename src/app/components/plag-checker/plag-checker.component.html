@@ -28,10 +28,11 @@
           <div class="product__big__images">
             <div class="portfolio-full-image tab-content">
               <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                <input type="file" (change)="onSelectFile1($event)" name="uploadfile1" id="img1" style="display:none;" />
+                <input type="file" (change)="onSelectFile1($event)" name="uploadfile1" id="img1"
+                  style="display:none;" />
                 <label for="img1">
                   <ul class="pro__dtl__btn">
-                    <li class="buy__now__btn"><a id="addButton">Upload Image 1</a></li>
+                    <li class="buy__now__btn"><a id="uploadButton">Upload Image 1</a></li>
                   </ul>
                 </label>
               </div>
@@ -46,8 +47,7 @@
           <div class="product__big__images">
             <div class="portfolio-full-image tab-content">
               <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                <img [src]="url1"
-                  alt="full-image">
+                <img [src]="url1" alt="full-image">
                 <!-- <input type="file"> -->
               </div>
             </div>
@@ -61,8 +61,7 @@
           <div class="product__big__images">
             <div class="portfolio-full-image tab-content">
               <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                <img [src]="url2"
-                  alt="full-image">
+                <img [src]="url2" alt="full-image">
                 <!-- <input type="file"> -->
               </div>
             </div>
@@ -76,10 +75,11 @@
           <div class="product__big__images">
             <div class="portfolio-full-image tab-content">
               <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                <input type="file" (change)="onSelectFile2($event)" name="uploadfile2" id="img2" style="display:none;" />
+                <input type="file" (change)="onSelectFile2($event)" name="uploadfile2" id="img2"
+                  style="display:none;" />
                 <label for="img2">
                   <ul class="pro__dtl__btn">
-                    <li class="buy__now__btn"><a id="addButton">Upload Image 2</a></li>
+                    <li class="buy__now__btn"><a id="uploadButton">Upload Image 2</a></li>
                   </ul>
                 </label>
               </div>
@@ -91,11 +91,18 @@
     </div>
     <div class="row" style="padding-top: 20px;">
       <ul class="pro__dtl__btn ">
-        <li class="htc__login__btn center-block"><button id="addButton">Compare</button></li>
+        <li class="htc__login__btn center-block" (click)="submit()"><button id="addButton">Compare</button></li>
       </ul>
     </div>
     <div class="row" style="padding-top: 20px;">
       <!-- <p>hello</p> -->
+      <div class="pro__detl__title ">
+        <ul class="pro__dtl__btn ">
+          <li class="htc__login__btn center-block">
+            <h2 id="plagReply"></h2>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

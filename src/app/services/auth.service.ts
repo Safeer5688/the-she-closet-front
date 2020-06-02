@@ -31,7 +31,7 @@ export class AuthService {
   authenticateUser(user) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('users/authenticate', user, { headers: headers }).pipe(map(res => res));
+    return this.http.post(this.baseUrl+'users/authenticate', user, { headers: headers }).pipe(map(res => res));
   }
 
   getProfile() {
@@ -39,7 +39,7 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('users/profile', { headers: headers }).pipe(map(res => res));
+    return this.http.get(this.baseUrl+'users/profile', { headers: headers }).pipe(map(res => res));
   }
 
   storeUserData(token, user) {
@@ -72,7 +72,7 @@ export class AuthService {
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
     // return true;
-    return this.http.get('users/isactive/' + email, { headers: headers }).pipe(map(res => res));
+    return this.http.get(this.baseUrl+'users/isactive/' + email, { headers: headers }).pipe(map(res => res));
   }
 
   isActive2() {
