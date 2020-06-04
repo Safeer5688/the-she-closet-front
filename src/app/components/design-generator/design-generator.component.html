@@ -130,7 +130,7 @@
                   <!-- <input type="file" name="download" id="img3" style="display:none;" /> -->
                   <label for="img3">
                     <ul class="pro__dtl__btn">
-                      <li class="buy__now__btn"><a id="downloadButton">Download</a></li>
+                      <li class="buy__now__btn"><a (click)="downloadImage()" id="downloadButton">Download</a></li>
                     </ul>
                   </label>
                 </div>
@@ -146,6 +146,21 @@
           <input type="range" [(ngModel)]="rangeValue" name="rangeValue"  min="0" max="10">
         </li>
       </ul>
+    </div>
+    <div class="row" style="padding-top: 20px;">
+      <ul class="pro__dtl__btn ">
+        <li class="htc__login__btn center-block" (click)="generateDesign()"><button id="addButton">Generate</button></li>
+      </ul>
+    </div>
+    <div class="row" style="padding-top: 20px;">
+      <!-- <p>hello</p> -->
+      <div class="pro__detl__title ">
+        <ul class="pro__dtl__btn ">
+          <li class="htc__login__btn center-block">
+            <h2 id="plagReply"></h2>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
