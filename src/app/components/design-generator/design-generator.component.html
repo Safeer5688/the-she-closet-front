@@ -48,7 +48,7 @@
                   <input type="file" name="uploadfile1" (change)="onSelectFile1($event)" id="img1" style="display:none;" />
                   <label for="img1">
                     <ul class="pro__dtl__btn">
-                      <li class="buy__now__btn"><a id="uploadButton">Upload Image 1</a></li>
+                      <li class="buy__now__btn"><a id="uploadButton">Upload Mask</a></li>
                     </ul>
                   </label>
                 </div>
@@ -89,7 +89,7 @@
                   <input type="file" name="uploadfile2" (change)="onSelectFile2($event)" id="img2" style="display:none;" />
                   <label for="img2">
                     <ul class="pro__dtl__btn">
-                      <li class="buy__now__btn"><a id="uploadButton">Upload Image 2</a></li>
+                      <li class="buy__now__btn"><a id="uploadButton">Upload Style</a></li>
                     </ul>
                   </label>
                 </div>
@@ -143,7 +143,35 @@
     <div class="row" style="padding-top: 40px;">
       <ul class="pro__dtl__btn ">
         <li class=" center-block">
-          <input type="range" [(ngModel)]="rangeValue" name="rangeValue"  min="0" max="10">
+          <input type="range" [(ngModel)]="rangeValue1" name="rangeValue1"  min="0" max="10">
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="padding-top: 40px;">
+      <ul class="pro__dtl__btn ">
+        <li class=" center-block">
+          <input type="range" [(ngModel)]="rangeValue2" name="rangeValue2"  min="0" max="10">
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="padding-top: 40px;">
+      <ul class="pro__dtl__btn ">
+        <li class=" center-block ">
+          <input type="range"  [(ngModel)]="rangeValue3" name="rangeValue3" id="rangeValue3"  min="0" max="10">
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="padding-top: 40px;">
+      <ul class="pro__dtl__btn ">
+        <li class=" center-block">
+          <input type="range" [(ngModel)]="rangeValue4" name="rangeValue4"  min="0" max="10">
+        </li>
+      </ul>
+    </div>
+    <div class="row" style="padding-top: 40px;">
+      <ul class="pro__dtl__btn ">
+        <li class=" center-block">
+          <input type="range" [(ngModel)]="rangeValue5" name="rangeValue5"  min="0" max="10">
         </li>
       </ul>
     </div>

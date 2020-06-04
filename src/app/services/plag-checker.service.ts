@@ -11,12 +11,14 @@ import { ConstantsService } from './constants.service'
 })
 export class PlagCheckerService {
   baseUrl:any;
+  baseUrl2:any;
   constructor(
     private http: Http,
     private authService: AuthService,
     private constantService:ConstantsService
   ) {
     this.baseUrl=this.constantService.getBaseUrl();
+    this.baseUrl2 = "http://192.168.43.53:5000/";
    }
 
   compare(url1, url2) {
@@ -28,7 +30,7 @@ export class PlagCheckerService {
     this.authService.loadToken();
     headers.append('Authorization',this.authService.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.post(this.baseUrl+'users/compare', pictures, { headers: headers }).pipe(map(res => res));
+    return this.http.post(this.baseUrl2+'checkplag', pictures, { headers: headers }).pipe(map(res => res));
   }
 
 }
