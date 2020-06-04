@@ -61,6 +61,7 @@ import { SendForgetPasswordLinkComponent } from './components/send-forget-passwo
 import { NewslettersComponent } from './components/admin/newsletters/newsletters.component';
 import { OrderDatailsComponent } from './components/order-datails/order-datails.component';
 import { PlagCheckerComponent } from './components/plag-checker/plag-checker.component';
+import { DesignGeneratorComponent } from './components/design-generator/design-generator.component';
 
 
 
@@ -101,6 +102,7 @@ import { PlagCheckerComponent } from './components/plag-checker/plag-checker.com
     NewslettersComponent,
     OrderDatailsComponent,
     PlagCheckerComponent,
+    DesignGeneratorComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,6 +129,7 @@ import { PlagCheckerComponent } from './components/plag-checker/plag-checker.com
       {path:'resetpassword',component:ResetPasswordComponent, canActivate:[AuthGuard]},
       {path:'sendverificationlink',component:SendVerificationLinkComponent, canActivate:[AuthGuard]},
       {path:'plag-checker',component:PlagCheckerComponent},
+      {path:'design-generator',component:DesignGeneratorComponent},
       
       {path:'admin/products',component:AdminProductsComponent, canActivate:[AuthGuard,AdminGuard]},
       {path:'admin/products/new',component:ProductFormComponent, canActivate:[AuthGuard,AdminGuard]},

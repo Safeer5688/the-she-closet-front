@@ -1,0 +1,39 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 200px;
+      -webkit-appearance: none;
+      background-color: #ddd;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+      -webkit-appearance: none;
+      color: #13bba4;
+      margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      width: 10px;
+      -webkit-appearance: none;
+      height: 10px;
+      cursor: ew-resize;
+      background: #2f1219;
+      box-shadow: -80px 0 0 80px #e2c5bd;
+    }
+
+}
+/** FF*/
+input[type="range"]::-moz-range-progress {
+  background-color: #e2c5bd; 
+}
+input[type="range"]::-moz-range-track {  
+  background-color: #ddd;
+}
+/* IE*/
+input[type="range"]::-ms-fill-lower {
+  background-color: #e2c5bd; 
+}
+input[type="range"]::-ms-fill-upper {  
+  background-color: #ddd;
+}
