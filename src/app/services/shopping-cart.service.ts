@@ -5,16 +5,20 @@ import { map } from "rxjs/operators";
 import {tokenNotExpired} from 'angular2-jwt';
 import { AuthService } from './auth.service';
 import { Product } from '../models/product';
+import { ConstantsService } from './constants.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
-
+  baseUrl:String;
   constructor(
     private http:Http,
     private authService:AuthService,
-  ) { }
+    private constantsService:ConstantsService
+  ) {
+    this.baseUrl = constantsService.getBaseUrl();
+   }
 
   makeid(length) {
     var result           = '';
@@ -175,7 +179,7 @@ export class ShoppingCartService {
   applyPromo(promo){
     let headers = new Headers();
     headers.append( 'Content-Type', 'application/json' );
-    return this.http.get('promo/'+promo,{headers:headers}).pipe(map(res => res));
+    return this.http.get(this.baseUrl+'promo/'+promo,{headers:headers}).pipe(map(res => res));
   }
 
   getPromo(){
@@ -204,6 +208,6 @@ export class ShoppingCartService {
     
     headers.append('Authorization',token);
     headers.append( 'Content-Type', 'application/json' );
-    return this.http.post('users/order/new',order,{headers:headers}).pipe(map(res => res));
+    return this.http.post(this.baseUrl+'users/order/new',order,{headers:headers}).pipe(map(res => res));
   }
 }

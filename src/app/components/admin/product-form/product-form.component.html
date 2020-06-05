@@ -64,9 +64,15 @@
       <div class="form-group">
         <label for="imageLink1">Image Link 1</label>
         <input #imageLink1="ngModel" [(ngModel)]="product.imageLink1" name="imageLink1" id="imageLink1"
-          type="text" class="form-control" placeholder="Image Link 1" required url>
+          type="file" class="form-control" (change)="onSelectFile1($event)" placeholder="Image Link 1" required url>
       </div>
-      <div class="form-group">
+
+      <!-- <div class="form-group">
+        <label for="imageLink1">Image Link 1</label>
+        <input #imageLink1="ngModel" [(ngModel)]="product.imageLink1" name="imageLink1" id="imageLink1"
+          type="text" class="form-control" placeholder="Image Link 1" required url>
+      </div> -->
+      <!-- <div class="form-group">
         <label for="imageId1">Image Id 1</label>
         <input #imageId1="ngModel" [(ngModel)]="product.imageId1" name="imageId1" id="imageId1" type="text"
           class="form-control" placeholder="Image Id 1" required url>
@@ -103,7 +109,7 @@
         <label for="imageId4">Image Id 4</label>
             <input #imageId4="ngModel" [(ngModel)]="product.imageId4" name="imageId4" id="imageId4"
               type="text" class="form-control" placeholder="Image Id 4" required url>
-      </div>
+      </div> -->
       
       
       <div class="form-group">

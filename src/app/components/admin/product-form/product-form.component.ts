@@ -16,6 +16,7 @@ export class ProductFormComponent implements OnInit {
   categories$;
   product:any = {};
   id;
+  imageLink:any;
   constructor(
     private router: Router,
     private flashMessage: FlashMessagesService,
@@ -71,10 +72,10 @@ export class ProductFormComponent implements OnInit {
       { name: "xxxl", isAvailable: product.xxxl }
     ];
     newProduct['imageUrls'] = [
-      { link: product.imageLink1, imageId: product.imageId1 },
-      { link: product.imageLink2, imageId: product.imageId2 },
-      { link: product.imageLink3, imageId: product.imageId3 },
-      { link: product.imageLink4, imageId: product.imageId4 }
+      { link:this.imageLink, imageId: "this.imageLink" },
+      { link: "this.imageLink", imageId: "this.imageLink" },
+      { link: "this.imageLink", imageId: "this.imageLink" },
+      { link: "this.imageLink", imageId: "this.imageLink" }
     ];
     if (this.id) {
 
@@ -92,6 +93,7 @@ export class ProductFormComponent implements OnInit {
       });
     } else {
       console.log(newProduct);
+      // return;
       this.productService.create(newProduct).subscribe(data => {
         data = JSON.parse(data["_body"]);
         console.log(data);
@@ -121,7 +123,16 @@ export class ProductFormComponent implements OnInit {
       }
     });
   }
-
+  onSelectFile1(event: any) { // called each time file input changes
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      reader.onload = (event: any) => { // called once readAsDataURL is completed
+        this.imageLink = event.target.result;
+        console.log(event.target.result);
+      }
+    }
+  }
   ngOnInit() {
   }
 

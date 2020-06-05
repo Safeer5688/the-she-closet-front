@@ -11,7 +11,7 @@
 	You can put your custom css code here: 
 -------------------------------------------------------*/
 .example6 .navbar-brand {
-  background: no-repeat url("../images/logo/logo-text.png") center / contain;
+  background: no-repeat url("../images/logo/logo.png") center / contain;
   width: 100px;
   margin-top: 10px;
 }

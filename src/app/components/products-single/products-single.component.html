@@ -38,7 +38,7 @@
             <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                 <div class="product__details__container">
                     <!-- Start Small images -->
-                    <ul class="product__small__images" role="tablist">
+                    <!-- <ul class="product__small__images" role="tablist">
                         <li role="presentation" class="pot-small-img active">
                             <a href="#img-tab-1" role="tab" data-toggle="tab">
 
@@ -64,24 +64,24 @@
                                     alt="small-image">
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- End Small images -->
                     <div class="product__big__images">
                         <div class="portfolio-full-image tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                                <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[0]['imageId']}}"
+                                <img src="{{product.imageUrls[0]['imageId']}}"
                                     alt="full-image">
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="img-tab-2">
-                                <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[1]['imageId']}}"
+                                <img src="{{product.imageUrls[1]['imageId']}}"
                                     alt="full-image">
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="img-tab-3">
-                                <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[2]['imageId']}}"
+                                <img src="{{product.imageUrls[2]['imageId']}}"
                                     alt="full-image">
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="img-tab-4">
-                                <img src="https://res.cloudinary.com/the-she-closet/image/upload/w_375,h_650/{{product.imageUrls[3]['imageId']}}"
+                                <img src="{{product.imageUrls[3]['imageId']}}"
                                     alt="full-image">
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                                 <div class="product-quantity">
                                     <div class="cart-plus-minus" id="plusMinus">
                                         <input class="cart-plus-minus-box" type="number" name="qtybutton" id="quantity"
-                                            value="1" min="1">
+                                            value="1" min="1" max="1" disabled>
                                     </div>
                                 </div>
                             </form>

@@ -4,18 +4,18 @@ import {Http, Headers} from '@angular/http';
 import { map } from "rxjs/operators";
 import {tokenNotExpired} from 'angular2-jwt';
 import { AuthService } from './auth.service';
-import { ConstantsService } from './constants.service'
+import { ConstantsService } from './constants.service';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  // private baseUrl:String;
+   baseUrl:String;
 
   constructor(
     private http:Http,
-    private baseUrl:String,
     private authService:AuthService,
     private constantService:ConstantsService
     ) {
